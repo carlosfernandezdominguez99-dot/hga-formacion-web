@@ -125,6 +125,10 @@ footer{padding:40px 0 60px; border-top:1px solid var(--line);}
 @media screen and (max-width:820px){
   .diag-grid, .plans, .feat-grid{grid-template-columns:1fr;}
 }
+.print-only-link{display:none;}
+@media print{
+  .print-only-link{display:inline-block;}
+}
 </style>
 </head>
 <body>
@@ -137,7 +141,7 @@ footer{padding:40px 0 60px; border-top:1px solid var(--line);}
     </div>
     <div style="text-align:right;">
       <div class="doc mono">Propuesta · Grupo HGA · Septiembre 2026</div>
-      <a class="doc mono" href="https://hga-formacion-web.vercel.app/propuesta.html" target="_blank" rel="noopener" style="color:var(--accent); text-decoration:none; display:inline-block; margin-top:4px;">Ver propuesta online →</a>
+      <a class="doc mono print-only-link" href="https://hga-formacion-web.vercel.app/propuesta.html" target="_blank" rel="noopener" style="color:var(--accent); text-decoration:none; margin-top:4px;">Ver propuesta online →</a>
     </div>
   </div>
 </div>
