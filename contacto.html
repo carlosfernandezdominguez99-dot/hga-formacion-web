@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Contacto — HGA Formación</title>
+<meta name="description" content="Teléfono, WhatsApp y formulario de contacto de HGA Formación en Aracena, Huelva.">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<div class="flag">Maqueta de diseño<span class="long"> · precios tomados de hgaformacion.es</span></div>
+
+<nav class="nav">
+  <div class="wrap nav-inner">
+    <a href="index.html"><img src="assets/logo.png" alt="HGA Formación"></a>
+    <div class="nav-links">
+      <a href="index.html" data-nav="inicio">Inicio</a>
+      <a href="cursos.html" data-nav="cursos">Cursos y precios</a>
+      <a href="el-centro.html" data-nav="centro">El centro</a>
+      <a href="preguntas-frecuentes.html" data-nav="faq">Preguntas frecuentes</a>
+      <a href="contacto.html" data-nav="contacto" class="active">Contacto</a>
+    </div>
+    <a class="btn btn-dark" href="contacto.html">Escríbenos</a>
+  </div>
+</nav>
+
+<main>
+<section>
+    <div class="wrap">
+      <div class="head">
+        <span class="label">Contacto</span>
+        <h2>Cuéntanos qué necesitas</h2>
+        <p>Lo más rápido es WhatsApp: normalmente contestamos el mismo día con la próxima convocatoria y el precio exacto de tu caso.</p>
+      </div>
+      <div class="contact-grid">
+        <form onsubmit="event.preventDefault(); this.querySelector('.sent').hidden=false;">
+          <div class="field"><label for="n">Nombre</label><input id="n" type="text" placeholder="Tu nombre" required></div>
+          <div class="field"><label for="t">Teléfono</label><input id="t" type="tel" placeholder="600 000 000" required></div>
+          <div class="field"><label for="c">¿Qué te interesa?</label>
+            <select id="c">
+              <option>Permiso de conducir (autoescuela)</option>
+              <option>CAP inicial o renovación</option>
+              <option>ADR</option>
+              <option>Formación agroganadera</option>
+              <option>PRL-ITC / formación de empresa</option>
+              <option>Otra cosa</option>
+            </select>
+          </div>
+          <div class="field"><label for="m">Mensaje</label><textarea id="m" rows="4" placeholder="Cuéntanos brevemente tu caso"></textarea></div>
+          <button class="btn btn-dark" type="submit">Enviar consulta</button>
+          <p class="sent" hidden style="margin-top:12px; font-size:14px; color:var(--teal);">Formulario de ejemplo — en la web real, esta consulta llegaría al correo del centro.</p>
+        </form>
+        <div class="info-card">
+          <h3>HGA Formación</h3>
+          <div class="info-item"><div class="k">Teléfono y WhatsApp</div><p class="num">617 76 23 85</p></div>
+          <div class="info-item"><div class="k">Dónde estamos</div><p>Aracena, Huelva</p><p class="small">Sierra de Aracena y Picos de Aroche</p></div>
+          <div class="info-item"><div class="k">Horario de oficina</div><p class="small">Consúltanos el horario actual de atención y de las próximas convocatorias.</p></div>
+          <div class="info-item"><div class="k">Síguenos</div><p class="small">Instagram · Facebook · LinkedIn</p></div>
+          <div style="margin-top:26px;"><a class="btn btn-teal" href="contacto.html">Abrir WhatsApp</a></div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <div>
+      <img src="assets/logo.png" alt="HGA Formación">
+      <p>Centro de formación en Aracena: autoescuela, transporte profesional, agroganadera y PRL-ITC.</p>
+    </div>
+    <div>
+      <h4>Cursos</h4>
+      <a href="cursos.html">Autoescuela</a>
+      <a href="cursos.html">CAP y ADR</a>
+      <a href="cursos.html">Agroganadera</a>
+      <a href="cursos.html">PRL-ITC</a>
+    </div>
+    <div>
+      <h4>Centro</h4>
+      <a href="el-centro.html">El centro</a>
+      <a href="preguntas-frecuentes.html">Preguntas frecuentes</a>
+      <a href="contacto.html">Contacto</a>
+    </div>
+    <div>
+      <h4>Contacto</h4>
+      <a href="contacto.html" class="num">617 76 23 85</a>
+      <a href="contacto.html">Aracena, Huelva</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
