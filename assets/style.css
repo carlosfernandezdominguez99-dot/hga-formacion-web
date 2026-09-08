@@ -75,6 +75,8 @@
 
   /* ---------- hero ---------- */
   .hero{background:var(--dark-panel); color:var(--on-dark); padding:64px 0 0; position:relative; overflow:hidden;}
+  .hero::before{content:""; position:absolute; inset:0; background-image:linear-gradient(100deg, var(--dark-panel) 34%, color-mix(in srgb, var(--dark-panel) 62%, transparent) 58%, color-mix(in srgb, var(--dark-panel) 18%, transparent) 100%), url('hero-coche.jpg'); background-size:cover; background-position:center 38%; z-index:0;}
+  .hero > .wrap{position:relative; z-index:1;}
   .hero .eyebrow{color:var(--teal-bright); font-family:'JetBrains Mono',monospace; font-size:11.5px; letter-spacing:.12em; text-transform:uppercase;}
   .hero h1{font-size:clamp(38px,6.2vw,68px); font-weight:800; line-height:1.02; margin-top:16px; max-width:15ch; color:var(--on-dark);}
   .hero h1 em{font-style:normal; color:var(--teal-bright);}
@@ -149,28 +151,6 @@
   .info-item .k{font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:var(--teal-bright);}
   .info-item p{margin-top:5px; font-size:15.5px; color:var(--on-dark);}
   .info-item p.small{font-size:13.5px; color:var(--on-dark-soft);}
-
-  /* ---------- showcase carousel ---------- */
-  .showcase{padding:44px 0 0;}
-  .carousel{background:var(--dark-panel); border-radius:10px; overflow:hidden;}
-  .slide-track{position:relative; min-height:190px;}
-  .slide{position:absolute; inset:0; display:flex; align-items:center; gap:28px; padding:36px 40px; opacity:0; transform:translateX(16px); transition:opacity .5s ease, transform .5s ease; pointer-events:none;}
-  .slide.is-active{opacity:1; transform:translateX(0); pointer-events:auto; position:relative;}
-  .slide-visual{flex:none; width:88px; height:88px; border-radius:50%; display:flex; align-items:center; justify-content:center; background:color-mix(in srgb, var(--accent, var(--teal-bright)) 18%, transparent); color:var(--accent, var(--teal-bright));}
-  .slide-copy .label{color:var(--teal-bright);}
-  .slide-copy h3{color:var(--on-dark); font-size:clamp(18px,2.2vw,23px); font-weight:800; margin-top:8px; max-width:36ch;}
-  .slide-copy p{color:var(--on-dark-soft); margin-top:8px; font-size:14px; max-width:48ch;}
-  .carousel-controls{display:flex; align-items:center; justify-content:center; gap:16px; padding:0 0 20px;}
-  .car-btn{width:32px; height:32px; border-radius:50%; border:1px solid var(--on-dark-soft); background:transparent; color:var(--on-dark); font-size:17px; cursor:pointer; display:flex; align-items:center; justify-content:center; line-height:1;}
-  .car-btn:hover{background:var(--dark-panel-2);}
-  .dots{display:flex; gap:8px;}
-  .dot{width:8px; height:8px; border-radius:50%; border:none; background:var(--on-dark-soft); opacity:.4; cursor:pointer; padding:0;}
-  .dot.is-active{opacity:1; background:var(--teal-bright);}
-  @media (max-width:700px){
-    .slide{flex-direction:column; text-align:center; gap:14px; padding:30px 24px;}
-    .slide-copy p{max-width:none;}
-    .slide-track{min-height:290px;}
-  }
 
   /* ---------- cta band ---------- */
   .band{background:var(--dark-panel-2); color:var(--on-dark); padding:46px 0;}
