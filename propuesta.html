@@ -1,0 +1,322 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Propuesta HGA — ZERA Soluciones Digitales</title>
+<meta name="description" content="Propuesta de redes sociales, web y automatización para el Grupo HGA.">
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" href="assets/favicon.ico" sizes="any">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Poppins:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600;700&display=swap');
+
+:root{
+  --paper:#0B1113; --panel:#12191C; --panel-2:#171F22;
+  --ink:#F2F6F7; --ink-soft:#9FB0B4; --line:#223034;
+  --accent:#2AACBE; --accent-soft:#12292E; --accent-2:#EAF4F5;
+  --gold:#F2B20A; --gold-soft:#2b2410;
+}
+*{box-sizing:border-box;}
+html{-webkit-print-color-adjust:exact; print-color-adjust:exact;}
+body{margin:0; background:var(--paper); color:var(--ink); font-family:'Poppins',system-ui,sans-serif; line-height:1.55; -webkit-font-smoothing:antialiased;}
+@media print{
+  .plan, .diag-card, .swatch, .shot, .feat, .gallery, .next-grid, .plans, .diag-grid{ break-inside:avoid; }
+  .head{ break-after:avoid; }
+  .hero{ padding-top:0; padding-bottom:30px; }
+  section{ padding:34px 0; }
+}
+h1,h2,h3{font-family:'Bricolage Grotesque',sans-serif; margin:0; letter-spacing:-.015em; text-wrap:balance;}
+p{margin:0;}
+a{color:inherit;}
+.wrap{max-width:1080px; margin:0 auto; padding:0 28px;}
+.mono{font-family:'JetBrains Mono',monospace;}
+.label{font-family:'JetBrains Mono',monospace; font-size:12px; letter-spacing:.14em; text-transform:uppercase; color:var(--accent);}
+
+/* top bar */
+.topbar{display:flex; align-items:center; justify-content:space-between; padding:26px 0;}
+.zwordmark{display:flex; align-items:center; gap:10px;}
+.zmark{width:30px; height:30px; border-radius:7px; background:var(--accent); color:#04191D; font-family:'Bricolage Grotesque',sans-serif; font-weight:800; font-size:18px; display:flex; align-items:center; justify-content:center;}
+.zwordmark .name{font-family:'Bricolage Grotesque',sans-serif; font-weight:700; font-size:16px;}
+.zwordmark .sub{font-size:11px; color:var(--ink-soft); letter-spacing:.06em;}
+.topbar .doc{font-size:13px; color:var(--ink-soft);}
+
+/* hero */
+.hero{padding:70px 0 60px;}
+.hero h1{font-size:clamp(34px,5vw,56px); font-weight:800; max-width:16ch;}
+.hero h1 em{font-style:normal; color:var(--accent);}
+.hero .sub{margin-top:20px; font-size:18px; color:var(--ink-soft); max-width:56ch;}
+.hero .ctas{margin-top:32px; display:flex; gap:12px; flex-wrap:wrap;}
+.btn{display:inline-flex; align-items:center; gap:8px; font-weight:700; font-size:14.5px; padding:13px 22px; border-radius:8px; text-decoration:none; border:none; cursor:pointer; font-family:'Poppins',sans-serif;}
+.btn-accent{background:var(--accent); color:#04191D;}
+.btn-line{border:1.5px solid var(--line); color:var(--ink);}
+
+section{padding:56px 0; border-top:1px solid var(--line);}
+.head{max-width:60ch; margin-bottom:34px;}
+.head h2{font-size:clamp(24px,3.2vw,32px); font-weight:800; margin-top:10px;}
+.head p{margin-top:12px; color:var(--ink-soft); font-size:16px;}
+
+/* diagnostico */
+.diag-grid{display:grid; grid-template-columns:1fr 1fr; gap:20px;}
+.diag-card{border:1px solid var(--line); border-radius:10px; padding:26px;}
+.diag-card.now{background:var(--panel);}
+.diag-card.next{background:var(--accent-soft); border-color:color-mix(in srgb, var(--accent) 40%, var(--line));}
+.diag-card .tag{font-family:'JetBrains Mono',monospace; font-size:11.5px; letter-spacing:.1em; text-transform:uppercase; color:var(--ink-soft);}
+.diag-card.next .tag{color:var(--accent);}
+.diag-card ul{margin:16px 0 0; padding:0; list-style:none; display:flex; flex-direction:column; gap:12px;}
+.diag-card li{font-size:15px; padding-left:20px; position:relative; color:var(--ink-soft);}
+.diag-card.next li{color:var(--ink);}
+.diag-card li::before{content:"–"; position:absolute; left:0; color:var(--ink-soft);}
+.diag-card.next li::before{content:"✓"; color:var(--accent);}
+
+/* web feature list */
+.feat-grid{display:grid; grid-template-columns:1fr 1fr; gap:18px; margin-top:0;}
+.feat{display:flex; gap:14px; padding:18px 0; border-bottom:1px solid var(--line);}
+.feat .ico{flex:none; width:38px; height:38px; border-radius:8px; background:var(--accent-soft); color:var(--accent); display:flex; align-items:center; justify-content:center;}
+.feat h4{font-size:15.5px; font-weight:700;}
+.feat p{font-size:13.5px; color:var(--ink-soft); margin-top:4px;}
+
+.gallery{display:grid; grid-template-columns:1.4fr 1fr; gap:16px; margin-top:36px;}
+.gallery .stack{display:flex; flex-direction:column; gap:16px;}
+.shot{border-radius:10px; overflow:hidden; border:1px solid var(--line); box-shadow:0 22px 50px -24px rgba(0,0,0,.6);}
+.shot img{display:block; width:100%; height:auto;}
+.shot-cap{font-size:12.5px; color:var(--ink-soft); margin-top:8px; font-family:'JetBrains Mono',monospace; letter-spacing:.02em;}
+
+/* social */
+.swatches{display:flex; gap:14px; margin-top:28px; flex-wrap:wrap;}
+.swatch{flex:1; min-width:200px; border:1px solid var(--line); border-radius:10px; overflow:hidden; background:var(--panel);}
+.swatch .bar{height:8px;}
+.swatch .body{padding:18px;}
+.swatch h4{font-size:15px; font-weight:700;}
+.swatch p{font-size:13px; color:var(--ink-soft); margin-top:6px;}
+.social-points{margin-top:30px; display:flex; flex-direction:column; gap:12px;}
+.social-points p{font-size:15px; color:var(--ink-soft); padding-left:20px; position:relative;}
+.social-points p::before{content:"—"; position:absolute; left:0; color:var(--accent);}
+
+/* pricing */
+.plans{display:grid; grid-template-columns:repeat(3,1fr); gap:18px; align-items:stretch;}
+.plan{border:1px solid var(--line); border-radius:12px; padding:28px 24px; background:var(--panel); display:flex; flex-direction:column;}
+.plan.rec{background:var(--accent-soft); border-color:color-mix(in srgb, var(--accent) 45%, var(--line)); position:relative;}
+.plan .rec-tag{position:absolute; top:-13px; left:24px; background:var(--accent); color:#04191D; font-family:'JetBrains Mono',monospace; font-size:11px; font-weight:700; letter-spacing:.08em; text-transform:uppercase; padding:5px 12px; border-radius:100px;}
+.plan .num{font-family:'JetBrains Mono',monospace; font-size:12px; color:var(--ink-soft); letter-spacing:.08em;}
+.plan h3{font-size:19px; font-weight:700; margin-top:10px; min-height:52px;}
+.plan .price{margin-top:16px; font-family:'Bricolage Grotesque',sans-serif; font-size:34px; font-weight:800;}
+.plan .price span{font-size:14px; font-weight:500; color:var(--ink-soft); font-family:'Poppins',sans-serif;}
+.plan .setup{font-size:13px; color:var(--ink-soft); margin-top:4px;}
+.plan ul{list-style:none; padding:0; margin:22px 0 0; display:flex; flex-direction:column; gap:11px; flex:1;}
+.plan li{font-size:14px; padding-left:20px; position:relative; color:var(--ink-soft);}
+.plan li::before{content:"✓"; position:absolute; left:0; color:var(--accent);}
+.plan.rec li{color:var(--ink);}
+
+/* next steps */
+.next-grid{display:flex; justify-content:space-between; align-items:center; gap:30px; flex-wrap:wrap; background:var(--panel); border:1px solid var(--line); border-radius:12px; padding:34px;}
+.next-grid h3{font-size:22px; font-weight:800; max-width:24ch;}
+.next-grid p{margin-top:10px; color:var(--ink-soft); font-size:15px; max-width:44ch;}
+
+footer{padding:40px 0 60px; border-top:1px solid var(--line);}
+.foot-row{display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:14px;}
+.foot-row .mono{font-size:12.5px; color:var(--ink-soft);}
+
+@media (max-width:820px){
+  .diag-grid, .plans, .feat-grid{grid-template-columns:1fr;}
+  .gallery{grid-template-columns:1fr;}
+}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <div class="topbar">
+    <div class="zwordmark">
+      <div class="zmark">Z</div>
+      <div><div class="name">ZERA</div><div class="sub">SOLUCIONES DIGITALES</div></div>
+    </div>
+    <div class="doc mono">Propuesta · Grupo HGA · Septiembre 2026</div>
+  </div>
+</div>
+
+<section class="hero" style="border-top:none; padding-top:20px;">
+  <div class="wrap">
+    <span class="label">Redes · Web · Automatización</span>
+    <h1 style="margin-top:16px;">Una propuesta para dar <em>visibilidad e identidad</em> a cada parte de HGA</h1>
+    <p class="sub">Tres formas de avanzar: gestión profesional de redes, una web nueva que convierte visitas en matrículas, y automatización de WhatsApp para no perder ni una consulta. Puedes empezar por una y sumar las demás cuando quieras.</p>
+    <div class="ctas">
+      <a class="btn btn-accent" href="index.html" target="_blank" rel="noopener">Ver la demo de la web</a>
+      <a class="btn btn-line" href="#opciones">Ver las 3 opciones</a>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="head">
+      <span class="label">Punto de partida</span>
+      <h2>Lo que hay hoy, y a dónde podemos llevarlo</h2>
+    </div>
+    <div class="diag-grid">
+      <div class="diag-card now">
+        <span class="tag">Ahora mismo</span>
+        <ul>
+          <li>Las redes se llevan sin un calendario fijo</li>
+          <li>Instagram y Facebook sin una identidad clara por centro</li>
+          <li>La web actual no refleja lo que ofrece HGA hoy</li>
+          <li>Las consultas por WhatsApp se gestionan una a una, sin apoyo</li>
+        </ul>
+      </div>
+      <div class="diag-card next">
+        <span class="tag">Con esta propuesta</span>
+        <ul>
+          <li>Calendario de contenido fijo, con publicaciones puntuales para cursos</li>
+          <li>Cada centro del grupo con su propia identidad visual</li>
+          <li>Una web clara, con cursos, precios y convocatorias al día</li>
+          <li>Reserva y contacto directos por WhatsApp desde la propia web</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="head">
+      <span class="label">La nueva web</span>
+      <h2>Una web pensada para que el alumno reserve, no solo lea</h2>
+      <p>Ya tienes una demo funcionando: informativa, con los cuatro perfiles de HGA Formación, precios orientativos, y un sistema de convocatorias donde cada curso puede reservarse con un clic.</p>
+    </div>
+    <div class="feat-grid">
+      <div class="feat">
+        <div class="ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><rect x="3" y="4" width="18" height="16" rx="2" stroke="currentColor" stroke-width="1.8"/><path d="M3 9h18M8 4v2M16 4v2" stroke="currentColor" stroke-width="1.8"/></svg></div>
+        <div><h4>Convocatorias con reserva directa</h4><p>Fechas de CAP, ADR y agroganadera con plazas y un botón de "Reservar plaza" que abre WhatsApp con el mensaje ya escrito.</p></div>
+      </div>
+      <div class="feat">
+        <div class="ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M6.6 10.8c1.4 2.7 3.6 4.9 6.3 6.3l2.1-2.1c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.5.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9 0-16-7-16-16 0-.6.4-1 1-1h3.6c.6 0 1 .4 1 1 0 1.2.2 2.4.6 3.5.1.3 0 .7-.2 1L6.6 10.8Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg></div>
+        <div><h4>WhatsApp y llamada en un toque</h4><p>Botón de WhatsApp con mensaje precargado en cada página, y "Llámanos" para quien prefiera hablar directamente.</p></div>
+      </div>
+      <div class="feat">
+        <div class="ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><rect x="6" y="2" width="12" height="20" rx="2" stroke="currentColor" stroke-width="1.8"/><path d="M10 19h4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></div>
+        <div><h4>Pensada primero para el móvil</h4><p>Menú tipo app, imágenes recortadas para pantalla pequeña y botones a tamaño de dedo, no de ratón.</p></div>
+      </div>
+      <div class="feat">
+        <div class="ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 3l7 3v5c0 5-3.2 7.6-7 9.7C8.2 18.6 5 16 5 11V6l7-3z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg></div>
+        <div><h4>Cursos y precios claros por área</h4><p>Autoescuela, transporte profesional, agroganadera y PRL-ITC, cada uno con su información y su tarifa a la vista.</p></div>
+      </div>
+    </div>
+
+    <div class="gallery">
+      <div>
+        <div class="shot"><img src="assets/preview-home.jpg" alt="Portada de la demo de la nueva web de HGA Formación"></div>
+        <div class="shot-cap">Portada — hero.coche.jpg + aviso de próxima convocatoria</div>
+      </div>
+      <div class="stack">
+        <div class="shot"><img src="assets/preview-mobile.jpg" alt="Vista móvil de la demo con menú tipo app"></div>
+        <div class="shot-cap">Vista móvil — menú y botones adaptados</div>
+      </div>
+    </div>
+    <div class="stack" style="margin-top:16px;">
+      <div class="shot"><img src="assets/preview-convo.jpg" alt="Página de convocatorias con reserva por WhatsApp"></div>
+      <div class="shot-cap">Convocatorias — fecha, plazas y reserva en un clic</div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="head">
+      <span class="label">Redes sociales</span>
+      <h2>Una identidad propia para cada parte de HGA</h2>
+      <p>Hoy Instagram y Facebook hablan de todo el grupo con una sola voz. La idea es sectorizar el contenido por color, para que cada centro se reconozca de un vistazo sin perder que todos son HGA: unas ~8 publicaciones al mes más las puntuales de cada convocatoria o promoción (sin Reels, tal y como se comentó), con calendario fijo.</p>
+    </div>
+    <div class="swatches">
+      <div class="swatch">
+        <div class="bar" style="background:#2AACBE;"></div>
+        <div class="body"><h4>HGA Formación</h4><p>Aracena · línea de color turquesa</p></div>
+      </div>
+      <div class="swatch">
+        <div class="bar" style="background:#F2B20A;"></div>
+        <div class="body"><h4>HGA Andévalo</h4><p>Calañas · línea de color dorado</p></div>
+      </div>
+      <div class="swatch">
+        <div class="bar" style="background:#111111;"></div>
+        <div class="body"><h4>Grupo HGA</h4><p>Marca paraguas · línea en negro</p></div>
+      </div>
+    </div>
+    <div class="social-points">
+      <p>Plantillas propias por color para que cada publicación se identifique con su centro sin necesitar leer el texto.</p>
+      <p>Calendario mensual cerrado de antemano, más publicaciones puntuales para convocatorias y promociones (con opción de anuncio de pago si interesa dar más alcance).</p>
+      <p>En la opción con web, la posibilidad de sumar un blog sencillo pensado para mejorar el posicionamiento y la ficha de Google Business.</p>
+    </div>
+  </div>
+</section>
+
+<section id="opciones">
+  <div class="wrap">
+    <div class="head">
+      <span class="label">Las 3 opciones</span>
+      <h2>Elige por dónde empezar</h2>
+      <p>Cada opción incluye todo lo de la anterior. Se puede empezar por la más sencilla y ampliar más adelante sin perder lo ya hecho.</p>
+    </div>
+    <div class="plans">
+      <div class="plan">
+        <span class="num">Opción 1</span>
+        <h3>Gestión de redes sociales</h3>
+        <div class="price">160€ <span>/ mes</span></div>
+        <div class="setup">Sin pago único</div>
+        <ul>
+          <li>Calendario e ~8 publicaciones al mes en Instagram y Facebook</li>
+          <li>Publicaciones puntuales para convocatorias y promociones</li>
+          <li>Identidad visual diferenciada por centro (Formación, Andévalo, Grupo)</li>
+          <li>Sin Reels, tal y como se comentó</li>
+        </ul>
+      </div>
+      <div class="plan rec">
+        <span class="rec-tag">Recomendada</span>
+        <span class="num">Opción 2</span>
+        <h3>Redes + web nueva + mantenimiento</h3>
+        <div class="price">210€ <span>/ mes</span></div>
+        <div class="setup">+ 450€ pago único (web)</div>
+        <ul>
+          <li>Todo lo de la Opción 1</li>
+          <li>Web nueva completa: cursos, precios, convocatorias y contacto</li>
+          <li>Mantenimiento continuo de la web</li>
+          <li>Posibilidad de blog para SEO y mejora de la ficha de Google Business</li>
+        </ul>
+      </div>
+      <div class="plan">
+        <span class="num">Opción 3</span>
+        <h3>Redes + web + automatización WhatsApp</h3>
+        <div class="price">240€ <span>/ mes</span></div>
+        <div class="setup">+ 600€ pago único</div>
+        <ul>
+          <li>Todo lo de la Opción 2</li>
+          <li>Automatización de WhatsApp Business</li>
+          <li>Respuestas y gestión de consultas sin intervención manual</li>
+          <li>Ideal si el volumen de mensajes crece</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="next-grid">
+      <div>
+        <h3>¿Seguimos adelante?</h3>
+        <p>Sin presupuesto cerrado todavía por tu parte — con que nos digas por dónde os gustaría empezar, cuadramos los detalles y podemos tenerlo listo para arrancar cuando decidáis.</p>
+      </div>
+      <a class="btn btn-accent" href="#" >Hablar por WhatsApp</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap foot-row">
+    <div class="zwordmark">
+      <div class="zmark" style="width:24px;height:24px;font-size:14px;">Z</div>
+      <div class="mono">ZERA · Soluciones Digitales</div>
+    </div>
+    <div class="mono">Documento privado — no indexado</div>
+  </div>
+</footer>
+
+</body>
+</html>
