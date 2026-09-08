@@ -71,6 +71,8 @@
   .btn-teal{background:var(--teal-bright); color:#04191D;}
   .btn-line{border:1.5px solid var(--line); color:var(--ink);}
   .btn-light{background:var(--on-dark); color:#04191D;}
+  .btn-wa{box-shadow:0 0 0 1px rgba(37,211,102,.4) inset; transition:box-shadow .15s;}
+  .btn-wa:hover{box-shadow:0 0 0 1.5px rgba(37,211,102,.7) inset;}
 
 
   /* ---------- hero ---------- */
